@@ -1,0 +1,49 @@
+要在React项目中使用echart，需要安装echarts依赖和React-echarts组件库。
+
+以下是步骤：
+
+安装echarts依赖
+在终端中运行以下命令安装echarts：
+npm install echarts --save
+安装React-echarts组件库
+在终端中运行以下命令安装React-echarts：
+npm install --save react-echarts
+在项目中引入React-echarts组件库
+在需要使用echart的组件中，引入React-echarts组件：
+javascript
+import ReactEcharts from 'react-echarts';
+在组件中渲染图表
+在render方法中，用ReactEcharts组件包裹一个echart图表组件，设置option属性为需要显示的图表数据：
+javascript
+render() {
+  return (
+    <ReactEcharts option={this.getOption()} />
+  );
+}
+
+getOption = () => {
+  // 用于设置图表的数据
+  const option = {
+     title: {
+         text: 'ECharts 入门示例'
+     },
+     tooltip: {},
+     legend: {
+         data:['销量']
+     },
+     xAxis: {
+         data: ['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋','袜子']
+     },
+     yAxis: {},
+     series: [{
+         name: '销量',
+         type: 'bar',
+         data: [5, 20, 36, 10, 10, 20]
+     }]
+  };
+  
+  return option;
+}
+以上就是使用echart在React项目中显示图表的基本步骤。根据需要可以调整与配置图表。
+
+另外，需要注意的是在React项目中使用echart时，需要给ReactEcharts和包含它的容器元素设置固定的宽高，否则图表可能无法正常显示。
